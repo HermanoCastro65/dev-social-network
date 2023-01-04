@@ -7,6 +7,9 @@ class HomeController
 
     public function index()
     {
-        echo "in home";
+        if (!isset($_SESSION['login']))
+            \src\views\MainView::render('register');
+
+        \src\views\MainView::render('home');
     }
 }
