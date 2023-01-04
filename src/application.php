@@ -11,8 +11,7 @@ class Application
         $loadName = "src\controllers\\";
         $url = explode('/', @$_GET['url']);
 
-        if ($url[0] == '')
-            $loadName .= 'Home';
+        if ($url[0] == '') $loadName .= 'Home';
 
         $loadName .= ucfirst(strtolower($url[0]));
         $loadName .= 'Controller';
