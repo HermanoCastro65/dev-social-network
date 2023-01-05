@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Login</title>
+    <title>Register</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -19,12 +19,13 @@
         </div>
 
         <div class="form-login">
+            <h3 style="text-align: center;">Create your Account</h3>
             <form>
+                <input type="text" name="name" placeholder="Name">
                 <input type="text" name="login" placeholder="Login">
                 <input type="password" name="password" placeholder="Password">
-                <input type="submit" name="action" value="login">
+                <input type="submit" name="action" value="create account">
             </form>
-            <p><a href="<?php echo INCLUDE_PATH ?>register">Create Account</a></p>
         </div>
     </div>
 </body>
