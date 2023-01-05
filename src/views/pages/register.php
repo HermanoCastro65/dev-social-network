@@ -20,7 +20,7 @@
 
         <div class="form-login">
             <h3 style="text-align: center;">Create your Account</h3>
-            <form>
+            <form method="post">
                 <input type="text" name="name" placeholder="Name">
                 <input type="text" name="login" placeholder="Login">
                 <input type="password" name="password" placeholder="Password">

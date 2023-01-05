@@ -19,7 +19,7 @@
         </div>
 
         <div class="form-login">
-            <form>
+            <form method="post">
                 <input type="text" name="login" placeholder="Login">
                 <input type="password" name="password" placeholder="Password">
                 <input type="submit" name="action" value="login">
