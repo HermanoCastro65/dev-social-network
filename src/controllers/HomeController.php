@@ -7,9 +7,9 @@ class HomeController
 
     public function index()
     {
-        if (!isset($_SESSION['login']))
-            \src\views\MainView::render('register');
-
-        \src\views\MainView::render('home');
+        if (isset($_SESSION['login']))
+            \src\views\MainView::render('home');
+        else
+            \src\views\MainView::render('login');
     }
 }
