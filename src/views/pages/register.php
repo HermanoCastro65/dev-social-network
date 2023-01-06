@@ -22,7 +22,7 @@
             <h3 style="text-align: center;">Create your Account</h3>
             <form method="post">
                 <input type="text" name="name" placeholder="Name">
-                <input type="text" name="login" placeholder="Login">
+                <input type="text" name="email" placeholder="E-mail">
                 <input type="password" name="password" placeholder="Password">
                 <input type="submit" name="action" value="create account">
             </form>
