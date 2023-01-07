@@ -24,7 +24,7 @@ class RegisterController
                 $register->execute(array($name, $email, $password));
 
                 \src\Utils::alert('Successfully registered');
-                \src\Utils::redirect(INCLUDE_PATH . 'login');
+                \src\Utils::redirect(INCLUDE_PATH);
             }
         }
 
