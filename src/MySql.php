@@ -33,5 +33,6 @@ class MySql
                 echo 'error connecting ';
                 error_log(($error->getMessage()));
             }
+        return self::$pdo;
     }
 }
