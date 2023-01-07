@@ -2,17 +2,17 @@
 
 namespace src;
 
-use Dotenv\Dotenv;
-use Exception;
 use PDO;
+use Exception;
+use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(INCLUDE_PATH);
 $dotenv->load();
 
-define('DB_HOST', getenv('DB_HOST'));
-define('DB_NAME', getenv('DB_NAME'));
-define('DB_USER', getenv('DB_USER'));
-define('DB_PASSWORD', getenv('$DB_PASSWORD'));
+define('DB_HOST', $_ENV['DB_HOST']);
+define('DB_NAME', $_ENV['DB_NAME']);
+define('DB_USER', $_ENV['DB_USER']);
+define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
 
 class MySql
 {
@@ -20,6 +20,7 @@ class MySql
 
     public static function connect()
     {
+
         if (self::$pdo == null)
             try {
                 self::$pdo = new PDO(
