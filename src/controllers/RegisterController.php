@@ -15,6 +15,9 @@ class RegisterController
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 \src\Utils::alert('Invalid e-mail');
                 \src\Utils::redirect(INCLUDE_PATH . 'register');
+            } else if (\src\models\UsersModel::emailExists($email)) {
+                \src\Utils::alert('This email alredy exists');
+                \src\Utils::redirect(INCLUDE_PATH . 'register');
             } else if (strlen($password) < 6) {
                 \src\Utils::alert('Password is too short');
                 \src\Utils::redirect(INCLUDE_PATH . 'register');
