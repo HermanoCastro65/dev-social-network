@@ -6,7 +6,7 @@ use Dotenv\Dotenv;
 use Exception;
 use PDO;
 
-$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv::createImmutable(INCLUDE_PATH);
 $dotenv->load();
 
 define('DB_HOST', getenv('DB_HOST'));
