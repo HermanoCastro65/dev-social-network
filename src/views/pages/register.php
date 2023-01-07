@@ -25,6 +25,7 @@
                 <input type="text" name="email" placeholder="E-mail">
                 <input type="password" name="password" placeholder="Password">
                 <input type="submit" name="action" value="create account">
+                <input type="hidden" name="register" value="register" />
             </form>
         </div>
     </div>
