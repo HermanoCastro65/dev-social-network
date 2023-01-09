@@ -23,6 +23,7 @@
                 <input type="text" name="email" placeholder="E-mail">
                 <input type="password" name="password" placeholder="Password">
                 <input type="submit" name="action" value="login">
+                <input type="hidden" name="login">
             </form>
             <p><a href="<?php echo INCLUDE_PATH ?>register">Create Account</a></p>
         </div>
