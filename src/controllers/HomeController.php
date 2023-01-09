@@ -23,11 +23,10 @@ class HomeController
                 else {
                     $data = $verify->fetch();
                     $passwordDb = $data['password'];
-                    if (\src\Bcrypt::check($password, $passwordDb)) {
-                        $_SESSION['login'] = $data['email'];
-                        \src\Utils::alertAndRedirect('Login successfully', INCLUDE_PATH);
-                    } else
+                    if (!\src\Bcrypt::check($password, $passwordDb))
                         \src\Utils::alertAndRedirect('Invalid password', INCLUDE_PATH);
+                    $_SESSION['login'] = $data['email'];
+                    \src\Utils::alertAndRedirect('Login successfully', INCLUDE_PATH);
                 }
             }
 
