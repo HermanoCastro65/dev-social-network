@@ -15,7 +15,7 @@ class Utils
         echo '<script>alert("' . $mesage . '")</script>';
     }
 
-    public static function alertAndRedirect($url, $mesage)
+    public static function alertAndRedirect($mesage, $url)
     {
         Utils::alert($mesage);
         Utils::redirect($url);
