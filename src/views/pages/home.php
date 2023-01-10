@@ -118,7 +118,7 @@
             </div>
 
             <div class="friends-request-feed">
-                <h4>Solicitações de amizade</h4>
+                <h4>Friend requests</h4>
                 <div class="friend-request-single">
                     <img src="<?php echo INCLUDE_PATH_STATIC ?>images/denzel-washington.webp" />
                     <div class="friend-request-single-info">
