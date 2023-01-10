@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Login</title>
+    <title>Welcome, <?php echo $_SESSION['name']; ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -23,6 +23,7 @@
                 <a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> feed</a>
                 <a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> perfil</a>
                 <a href="#"><i class="fa fa-users" aria-hidden="true"></i> friends</a>
+                <a href="?loggout">loggout</a>
             </div>
         </div>
         <div class="feed">
@@ -36,6 +37,30 @@
                 </div>
                 <div class="feed-single-post-content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+            <div class="friends-request-feed">
+                <h4>Friendship request</h4>
+                <div class="friend-request-single">
+                    <img src="<?php echo INCLUDE_PATH_STATIC ?>images/john-cena.jpg" />
+                    <div class="friend-request-single-info">
+                        <h3>John Cena</h3>
+                        <p><a href="">Accept</a> | <a href="">Reject</a></p>
+                    </div>
+                </div>
+                <div class="friend-request-single">
+                    <img src="<?php echo INCLUDE_PATH_STATIC ?>images/denzel-washington.webp" />
+                    <div class="friend-request-single-info">
+                        <h3>Denzel Washington</h3>
+                        <p><a href="">Accept</a> | <a href="">Reject</a></p>
+                    </div>
+                </div>
+                <div class="friend-request-single">
+                    <img src="<?php echo INCLUDE_PATH_STATIC ?>images/dwayne-johnson.jpeg" />
+                    <div class="friend-request-single-info">
+                        <h3>Dwayne Johnson</h3>
+                        <p><a href="">Accept</a> | <a href="">Reject</a></p>
+                    </div>
                 </div>
             </div>
         </div>
