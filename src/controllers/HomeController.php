@@ -7,6 +7,12 @@ class HomeController
 
     public function index()
     {
+        if (isset($_GET['loggout'])) {
+            session_unset();
+            session_destroy();
+            \src\Utils::redirect(INCLUDE_PATH);
+        }
+
         if (isset($_SESSION['login']))
             \src\views\MainView::render('home');
         else {
@@ -25,7 +31,8 @@ class HomeController
                     $passwordDb = $data['password'];
                     if (!\src\Bcrypt::check($password, $passwordDb))
                         \src\Utils::alertAndRedirect('Invalid password', INCLUDE_PATH);
-                    $_SESSION['login'] = $data['email'];
+                    $_SESSION['login'] =  $data['email'];
+                    $_SESSION['name'] = explode(' ', $data['name'])[0];
                     \src\Utils::alertAndRedirect('Login successfully', INCLUDE_PATH);
                 }
             }
