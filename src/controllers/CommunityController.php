@@ -5,7 +5,7 @@ namespace src\controllers;
 class CommunityController
 {
 
-    public function render()
+    public function index()
     {
         \src\views\MainView::render('community');
     }
