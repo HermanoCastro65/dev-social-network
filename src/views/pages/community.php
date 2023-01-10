@@ -18,7 +18,7 @@
 		<div class="feed">
 			<div class="comunidade">
 				<div class="container-comunidade">
-					<h4>Amigos</h4>
+					<h4>Friends</h4>
 					<div class="container-comunidade-wraper">
 						<div class="container-comunidade-single">
 							<div class="img-comunidade-user-single">
@@ -85,7 +85,7 @@
 				<br />
 
 				<div class="container-comunidade">
-					<h4>Comunidade</h4>
+					<h4>Community</h4>
 					<div class="container-comunidade-wraper">
 						<div class="container-comunidade-single">
 							<div class="img-comunidade-user-single">
