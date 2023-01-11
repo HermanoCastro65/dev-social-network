@@ -14,6 +14,26 @@ class CommunityModel
 
     public static function requestFriendship($idRequested)
     {
-        return true;
+        $pdo = \src\MySql::connect();
+        $verifyFriendship = $pdo->prepare("SELECT * FROM friendships WHERE (requesting = ? AND requested = ?) OR (requesting = ? AND requested = ?)");
+        $verifyFriendship->execute(array($_SESSION['id'], $idRequested, $idRequested, $_SESSION['id']));
+        if ($verifyFriendship->rowCount() == 1)
+            return false;
+        else {
+            $insertFriendship = $pdo->prepare("INSERT INTO friendships VALUES (null, ?, ?, 0)");
+            if ($insertFriendship->execute(array($_SESSION['id'], $idRequested)))
+                return true;
+        }
+    }
+
+    public static function requestExists($idRequested)
+    {
+        $pdo = \src\MySql::connect();
+        $verifyFriendship = $pdo->prepare("SELECT * FROM friendships WHERE (requesting = ? AND requested = ?) OR (requesting = ? AND requested = ?)");
+        $verifyFriendship->execute(array($_SESSION['id'], $idRequested, $idRequested, $_SESSION['id']));
+        if ($verifyFriendship->rowCount() == 1)
+            return false;
+        else
+            return true;
     }
 }
