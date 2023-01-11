@@ -16,65 +16,60 @@
 		include('includes/sidebar.php');
 		?>
 		<div class="feed">
-			<div class="comunidade">
-				<div class="container-comunidade">
+			<div class="community">
+				<div class="container-community">
 					<h4>Friends</h4>
-					<div class="container-comunidade-wraper">
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
+					<div class="container-community-wraper">
+						<div class="container-community-single">
+							<div class="img-community-user-single">
 								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(1).png" />
 							</div>
-							<div class="info-comunidade-user-single">
+							<div class="info-community-user-single">
 								<h2>Cliff Doyle</h2>
 								<p>cliffdoyle@gmail.com</p>
 							</div>
-
 						</div>
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
+						<div class="container-community-single">
+							<div class="img-community-user-single">
 								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(2).png" />
 							</div>
-							<div class="info-comunidade-user-single">
+							<div class="info-community-user-single">
 								<h2>Herbert Goodwin</h2>
 								<p>herbertgoodwine@gmail.com</p>
 							</div>
-
 						</div>
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
+						<div class="container-community-single">
+							<div class="img-community-user-single">
 								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(3).png" />
 							</div>
-							<div class="info-comunidade-user-single">
+							<div class="info-community-user-single">
 								<h2>Kemp Wilcher</h2>
 								<p>kempwilchere@gmail.com</p>
 							</div>
-
 						</div>
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
+						<div class="container-community-single">
+							<div class="img-community-user-single">
 								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(4).png" />
 							</div>
-							<div class="info-comunidade-user-single">
+							<div class="info-community-user-single">
 								<h2>Alex Gardner</h2>
 								<p>alexgardnere@gmail.com</p>
 							</div>
-
 						</div>
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
+						<div class="container-community-single">
+							<div class="img-community-user-single">
 								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(5).png" />
 							</div>
-							<div class="info-comunidade-user-single">
+							<div class="info-community-user-single">
 								<h2>Magnus Colon</h2>
 								<p>magnuscolon@gmail.com</p>
 							</div>
-
 						</div>
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
+						<div class="container-community-single">
+							<div class="img-community-user-single">
 								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(6).png" />
 							</div>
-							<div class="info-comunidade-user-single">
+							<div class="info-community-user-single">
 								<h2>Ike Williamson</h2>
 								<p>ikewilliamson@gmail.com</p>
 							</div>
@@ -83,90 +78,30 @@
 					</div>
 				</div>
 				<br />
-
-				<div class="container-comunidade">
+				<div class="container-community">
 					<h4>Community</h4>
-					<div class="container-comunidade-wraper">
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(7).png" />
-							</div>
-							<div class="info-comunidade-user-single">
-								<h2>Wilfrid Montgomery</h2>
-								<p>wilfridmontgomery@gmail.com</p>
-								<div class="btn-solicitar-amizade">
-									<a href="<?php echo INCLUDE_PATH ?>comunidade?solicitarAmizade=10">Request Friendship</a>
+					<div class="container-community-wraper">
+						<?php
+						$community = \src\models\CommunityModel::listCommunity();
+						foreach ($community as $key => $value) {
+							if ($value['id'] == $_SESSION['id'])
+								continue;
+						?>
+							<div class="container-community-single">
+								<div class="img-community-user-single">
+									<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(7).png" />
+								</div>
+								<div class="info-community-user-single">
+									<h2><?php echo $value['name']; ?></h2>
+									<p><?php echo $value['email']; ?></p>
+									<div class="btn-solicitar-amizade">
+										<a href="<?php echo INCLUDE_PATH ?>community?requestFriendship=<?php echo $value['id']; ?>">
+											Request Friendship
+										</a>
+									</div>
 								</div>
 							</div>
-
-
-						</div>
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(8).png" />
-							</div>
-							<div class="info-comunidade-user-single">
-								<h2>Karen Barrett</h2>
-								<p>karenbarrett@gmail.com</p>
-								<div class="btn-solicitar-amizade">
-									<a href="<?php echo INCLUDE_PATH ?>comunidade?solicitarAmizade=10">Request Friendship</a>
-								</div>
-							</div>
-
-
-						</div>
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(9).png" />
-							</div>
-							<div class="info-comunidade-user-single">
-								<h2>Charlie Moreno</h2>
-								<p>charliemoreno@gmail.com</p>
-								<div class="btn-solicitar-amizade">
-									<a href="<?php echo INCLUDE_PATH ?>comunidade?solicitarAmizade=10">Request Friendship</a>
-								</div>
-							</div>
-
-						</div>
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(10).png" />
-							</div>
-							<div class="info-comunidade-user-single">
-								<h2>Hannah Marsho</h2>
-								<p>hannahmarsh@gmail.com</p>
-								<div class="btn-solicitar-amizade">
-									<a href="<?php echo INCLUDE_PATH ?>comunidade?solicitarAmizade=10">Request Friendship</a>
-								</div>
-							</div>
-
-						</div>
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(11).png" />
-							</div>
-							<div class="info-comunidade-user-single">
-								<h2>Darcy Nicholls</h2>
-								<p>gdarcynicholls@gmail.com</p>
-								<div class="btn-solicitar-amizade">
-									<a href="<?php echo INCLUDE_PATH ?>comunidade?solicitarAmizade=10">Request Friendship</a>
-								</div>
-							</div>
-
-						</div>
-						<div class="container-comunidade-single">
-							<div class="img-comunidade-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(12).png" />
-							</div>
-							<div class="info-comunidade-user-single">
-								<h2>Byron Quinn</h2>
-								<p>byronquinn@gmail.com</p>
-								<div class="btn-solicitar-amizade">
-									<a href="<?php echo INCLUDE_PATH ?>comunidade?solicitarAmizade=10">Request Friendship</a>
-								</div>
-							</div>
-
-						</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
