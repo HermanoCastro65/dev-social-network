@@ -1,20 +1,20 @@
-.container-comunidade h4 {
+.container-community h4 {
   font-size: 25px;
   color: #454545;
 }
 
-.comunidade {
+.community {
   width: 100%;
 }
 
-.container-comunidade-wraper {
+.container-community-wraper {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   margin: 40px 0;
 }
 
-.container-comunidade-single {
+.container-community-single {
   width: 32%;
   margin-bottom: 10px;
   margin-right: 1%;
@@ -22,29 +22,29 @@
   display: flex;
 }
 
-.container-comunidade-single .img-comunidade-user-single {
+.container-community-single .img-community-user-single {
   width: 20%;
   height: 100%;
   background-color: white;
 }
 
-.img-comunidade-user-single img {
+.img-community-user-single img {
   width: 100%;
   height: 100%;
 }
 
-.container-comunidade-single .info-comunidade-user-single {
+.container-community-single .info-community-user-single {
   width: 80%;
   padding: 20px;
 }
 
-.info-comunidade-user-single h2 {
+.info-community-user-single h2 {
   font-weight: bold;
   font-size: 15px;
   color: #454545;
 }
 
-.info-comunidade-user-single p {
+.info-community-user-single p {
   font-size: 15px;
   color: #454545;
   opacity: 0.4;
