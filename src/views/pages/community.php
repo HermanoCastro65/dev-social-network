@@ -95,9 +95,17 @@
 									<h2><?php echo $value['name']; ?></h2>
 									<p><?php echo $value['email']; ?></p>
 									<div class="btn-request-friendship">
-										<a href="<?php echo INCLUDE_PATH ?>community?requestFriendship=<?php echo $value['id']; ?>">
-											Request Friendship
-										</a>
+										<?php
+										if (\src\models\CommunityModel::requestExists($value['id'])) {
+										?>
+											<a href="<?php echo INCLUDE_PATH ?>community?requestFriendship=<?php echo $value['id']; ?>">
+												Request Friendship
+											</a>
+										<?php } else { ?>
+											<a href="javascript::void(0)" style="color:orange; border:0; pointer-events:none; cursor: default;">
+												pending request
+											</a>
+										<?php } ?>
 									</div>
 								</div>
 							</div>
