@@ -32,6 +32,7 @@ class HomeController
                     if (!\src\Bcrypt::check($password, $passwordDb))
                         \src\Utils::alertAndRedirect('Invalid password', INCLUDE_PATH);
                     $_SESSION['login'] =  $data['email'];
+                    $_SESSION['id'] = $data['id'];
                     $_SESSION['name'] = explode(' ', $data['name'])[0];
                     \src\Utils::alertAndRedirect('Login successfully', INCLUDE_PATH);
                 }
