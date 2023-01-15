@@ -34,6 +34,18 @@ class CommunityModel
         return $listPendingRequests->fetchAll();
     }
 
+    public static function updateFriendshipRequest($requesting, $status)
+    {
+        $pdo = \src\MySql::connect();
+        if ($status == 0) {
+            $delete = $pdo->prepare("DELETE FROM friendships WHERE requesting = ? AND requested = ? AND status = 0");
+            $delete->execute(array($requesting, $_SESSION['id']));
+        } else if ($status == 1) {
+            $acceptRequest = $pdo->prepare("UPDATE friendships SET status = 1 WHERE requesting = ? AND requested = ?");
+            $acceptRequest->execute(array($requesting, $_SESSION['id']));
+        }
+    }
+
     public static function requestExists($idRequested)
     {
         $pdo = \src\MySql::connect();
