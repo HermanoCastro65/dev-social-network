@@ -15,4 +15,12 @@ class UsersModel
         else
             return false;
     }
+
+    public static function getUserById($id)
+    {
+        $pdo = \src\MySql::connect();
+        $user = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+        $user->execute(array($id));
+        return $user->fetch();
+    }
 }
