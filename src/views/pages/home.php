@@ -108,27 +108,21 @@
 
             <div class="friends-request-feed">
                 <h4>Friend requests</h4>
-                <div class="friend-request-single">
-                    <img src="<?php echo INCLUDE_PATH_STATIC ?>images/denzel-washington.webp" />
-                    <div class="friend-request-single-info">
-                        <h3>Denzel Washington</h3>
-                        <p><a href="">Aceitar</a> | <a href="">Recusar</a></p>
+                <?php
+                foreach (\src\models\CommunityModel::listPendingRequests() as $key => $value) {
+                    $userInfo = \src\models\UsersModel::getUserById($value['requesting']);
+                ?>
+                    <div class="friend-request-single">
+                        <img src="<?php echo INCLUDE_PATH_STATIC ?>images/denzel-washington.webp" />
+                        <div class="friend-request-single-info">
+                            <h3><?php echo $userInfo['name'] ?></h3>
+                            <p>
+                                <a href="<?php echo INCLUDE_PATH ?>?acceptFriendship=<?php echo $userInfo['id'] ?>">Accept</a> |
+                                <a href="<?php echo INCLUDE_PATH ?>?refuseFriendship=<?php echo $userInfo['id'] ?>">Refuse</a>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="friend-request-single">
-                    <img src="<?php echo INCLUDE_PATH_STATIC ?>images/dwayne-johnson.jpeg" />
-                    <div class="friend-request-single-info">
-                        <h3>Dwayne Johnson</h3>
-                        <p><a href="">Aceitar</a> | <a href="">Recusar</a></p>
-                    </div>
-                </div>
-                <div class="friend-request-single">
-                    <img src="<?php echo INCLUDE_PATH_STATIC ?>images/john-cena.jpg" />
-                    <div class="friend-request-single-info">
-                        <h3>John Cena</h3>
-                        <p><a href="">Aceitar</a> | <a href="">Recusar</a></p>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div><!--feed-->
     </section>
