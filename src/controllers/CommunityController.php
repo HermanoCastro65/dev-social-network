@@ -12,9 +12,9 @@ class CommunityController
         if (isset($_GET['requestFriendship'])) {
             $idRequested = (int) $_GET['requestFriendship'];
             if (\src\models\CommunityModel::requestFriendship($idRequested))
-                \src\Utils::alert("request friendship ok");
+                \src\Utils::alertAndRedirect("request friendship ok", INCLUDE_PATH . 'community');
             else
-                \src\Utils::alert("error in request friendship");
+                \src\Utils::alertAndRedirect("error in request friendship", INCLUDE_PATH . 'community');
         }
 
         \src\views\MainView::render('community');
