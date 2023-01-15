@@ -13,9 +13,19 @@ class HomeController
             \src\Utils::redirect(INCLUDE_PATH);
         }
 
-        if (isset($_SESSION['login']))
+        if (isset($_SESSION['login'])) {
+            if (isset($_GET['refuseFriendship'])) {
+                $idRequesting = (int) $_GET['refuseFriendship'];
+                \src\models\CommunityModel::updateFriendshipRequest($idRequesting, 0);
+                \src\Utils::alertAndRedirect('Friendship refused', INCLUDE_PATH);
+            } else if (isset($_GET['acceptFriendship'])) {
+                $idRequesting = (int) $_GET['acceptFriendship'];
+                \src\models\CommunityModel::updateFriendshipRequest($idRequesting, 0);
+                \src\Utils::alertAndRedirect('Friendship accepted', INCLUDE_PATH);
+            }
+
             \src\views\MainView::render('home');
-        else {
+        } else {
 
             if (isset($_POST['login'])) {
                 $email = $_POST['email'];
