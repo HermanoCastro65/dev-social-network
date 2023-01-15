@@ -60,4 +60,28 @@ class CommunityModel
         else
             return true;
     }
+
+    public static function listFriends()
+    {
+        $pdo = \src\MySql::connect();
+        $friendships = $pdo->prepare("SELECT * FROM friendships WHERE (requesting = ? AND status = 1) OR (requested = ? AND status = 1)");
+        $friendships->execute(array($_SESSION['id'], $_SESSION['id']));
+        $friendships = $friendships->fetchAll();
+        $confirmedFriends = array();
+        $friendsList = array();
+
+        foreach ($friendships as $key => $value)
+            if ($value['requesting'] == $_SESSION['id'])
+                $confirmedFriends[] = $value['requested'];
+            else
+                $confirmedFriends[] = $value['requesting'];
+
+
+
+        foreach ($confirmedFriends as $key => $value) {
+            $friendsList[$key]['name'] = \src\models\UsersModel::getUserById($value)['name'];
+            $friendsList[$key]['email'] = \src\models\UsersModel::getUserById($value)['email'];
+        }
+        return $friendsList;
+    }
 }
