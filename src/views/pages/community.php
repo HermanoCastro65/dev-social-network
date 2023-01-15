@@ -84,6 +84,17 @@
 						<?php
 						$community = \src\models\CommunityModel::listCommunity();
 						foreach ($community as $key => $value) {
+							$pdo = \src\MySql::connect();
+							$verifyFriendship = $pdo->prepare(
+								"SELECT * FROM friendships WHERE 
+								(requesting = ? AND requested = ? AND status = 1) 
+								OR (requesting = ? AND requested = ? AND status = 1)"
+							);
+							$verifyFriendship->execute(array($value['id'], $_SESSION['id'], $_SESSION['id'], $value['id']));
+
+							if ($verifyFriendship->rowCount() == 1)
+								continue;
+
 							if ($value['id'] == $_SESSION['id'])
 								continue;
 						?>
