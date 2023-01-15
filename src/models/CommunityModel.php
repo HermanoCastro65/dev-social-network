@@ -26,6 +26,14 @@ class CommunityModel
         }
     }
 
+    public static function listPendingRequests()
+    {
+        $pdo = \src\MySql::connect();
+        $listPendingRequests = $pdo->prepare("SELECT * FROM friendships WHERE requested = ? AND status = 0");
+        $listPendingRequests->execute(array($_SESSION['id']));
+        return $listPendingRequests->fetchAll();
+    }
+
     public static function requestExists($idRequested)
     {
         $pdo = \src\MySql::connect();
