@@ -20,61 +20,18 @@
 				<div class="container-community">
 					<h4>Friends</h4>
 					<div class="container-community-wraper">
-						<div class="container-community-single">
-							<div class="img-community-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(1).png" />
-							</div>
-							<div class="info-community-user-single">
-								<h2>Cliff Doyle</h2>
-								<p>cliffdoyle@gmail.com</p>
-							</div>
-						</div>
-						<div class="container-community-single">
-							<div class="img-community-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(2).png" />
-							</div>
-							<div class="info-community-user-single">
-								<h2>Herbert Goodwin</h2>
-								<p>herbertgoodwine@gmail.com</p>
-							</div>
-						</div>
-						<div class="container-community-single">
-							<div class="img-community-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(3).png" />
-							</div>
-							<div class="info-community-user-single">
-								<h2>Kemp Wilcher</h2>
-								<p>kempwilchere@gmail.com</p>
-							</div>
-						</div>
-						<div class="container-community-single">
-							<div class="img-community-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(4).png" />
-							</div>
-							<div class="info-community-user-single">
-								<h2>Alex Gardner</h2>
-								<p>alexgardnere@gmail.com</p>
-							</div>
-						</div>
-						<div class="container-community-single">
-							<div class="img-community-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(5).png" />
-							</div>
-							<div class="info-community-user-single">
-								<h2>Magnus Colon</h2>
-								<p>magnuscolon@gmail.com</p>
-							</div>
-						</div>
-						<div class="container-community-single">
-							<div class="img-community-user-single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(6).png" />
-							</div>
-							<div class="info-community-user-single">
-								<h2>Ike Williamson</h2>
-								<p>ikewilliamson@gmail.com</p>
-							</div>
+						<?php foreach (\src\models\CommunityModel::listFriends() as $key => $value) { ?>
+							<div class="container-community-single">
+								<div class="img-community-user-single">
+									<img src="<?php echo INCLUDE_PATH_STATIC ?>images/avatars/avataaars(6).png" />
+								</div>
+								<div class="info-community-user-single">
+									<h2><?php echo $value['name'] ?></h2>
+									<p><?php echo $value['email'] ?></p>
+								</div>
 
-						</div>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 				<br />
