@@ -20,8 +20,10 @@ class HomeController
                 \src\Utils::alertAndRedirect('Friendship refused', INCLUDE_PATH);
             } else if (isset($_GET['acceptFriendship'])) {
                 $idRequesting = (int) $_GET['acceptFriendship'];
-                \src\models\CommunityModel::updateFriendshipRequest($idRequesting, 0);
-                \src\Utils::alertAndRedirect('Friendship accepted', INCLUDE_PATH);
+                if (\src\models\CommunityModel::updateFriendshipRequest($idRequesting, 1))
+                    \src\Utils::alertAndRedirect('Friendship accepted', INCLUDE_PATH);
+                else
+                    \src\Utils::alertAndRedirect('An error has occurred', INCLUDE_PATH);
             }
 
             \src\views\MainView::render('home');

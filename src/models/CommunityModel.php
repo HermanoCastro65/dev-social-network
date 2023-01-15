@@ -43,6 +43,10 @@ class CommunityModel
         } else if ($status == 1) {
             $acceptRequest = $pdo->prepare("UPDATE friendships SET status = 1 WHERE requesting = ? AND requested = ?");
             $acceptRequest->execute(array($requesting, $_SESSION['id']));
+            if ($acceptRequest->rowCount() == 1)
+                return true;
+            else
+                return false;
         }
     }
 
