@@ -152,6 +152,7 @@ section.main-feed {
   height: 120px;
   border: 1px solid #ccc;
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 .feed-form input[type='submit'] {

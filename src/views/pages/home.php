@@ -18,7 +18,8 @@
             <div class="feed-wraper">
                 <div class="feed-form">
                     <form method="post">
-                        <textarea placeholder="Your post here..."></textarea>
+                        <textarea name="post-content" placeholder="Your post here..."></textarea>
+                        <input type="hidden" name="post-feed" />
                         <input type="submit" name="action" value="post" />
                     </form>
                 </div>
