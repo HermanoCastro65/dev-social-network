@@ -26,6 +26,10 @@ class HomeController
                     \src\Utils::alertAndRedirect('An error has occurred', INCLUDE_PATH);
             }
 
+            if (isset($_POST['post-feed'])) {
+                \src\models\HomeModel::postFeed($_POST['post-content']);
+            }
+
             \src\views\MainView::render('home');
         } else {
 
