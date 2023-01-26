@@ -16,6 +16,12 @@
         ?>
         <div class="feed">
             <div class="feed-wraper">
+                <div class="feed-form">
+                    <form method="post">
+                        <textarea placeholder="Your post here..."></textarea>
+                        <input type="submit" name="action" value="post" />
+                    </form>
+                </div>
                 <div class="feed-single-post">
                     <div class="feed-single-post-author">
                         <div class="img-single-post-author">
