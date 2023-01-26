@@ -27,7 +27,11 @@ class HomeController
             }
 
             if (isset($_POST['post-feed'])) {
+                if ($_POST['post-content'] == '')
+                    \src\Utils::alertAndRedirect('No empty post', INCLUDE_PATH);
+
                 \src\models\HomeModel::postFeed($_POST['post-content']);
+                \src\Utils::alertAndRedirect('Successfully posted', INCLUDE_PATH);
             }
 
             \src\views\MainView::render('home');
